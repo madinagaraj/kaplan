@@ -8,11 +8,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Assignment")
+@SequenceGenerator(name = "assignment_no_gen", sequenceName = "assignment_no_gen",  initialValue = 5000)
 @Component
 public class Assignment {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     public Long assignmentId;
     public String assignmentName;
     public String assignmentTitle;
@@ -21,6 +21,8 @@ public class Assignment {
     public Integer assignmentDurationNum;
     public String assignmentDurationType;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "assignment_no_gen")
     public Long getAssignmentId() {
         return assignmentId;
     }
