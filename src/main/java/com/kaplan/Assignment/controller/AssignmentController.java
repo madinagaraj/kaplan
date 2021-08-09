@@ -8,7 +8,7 @@ public class AssignmentController {
     @GetMapping("/")
     public String Welcome(){
 
-        return "Use http://localhost:8087/swagger-ui.html for more details on end points ";
+        return "Use http://localhost:8087/swagger-ui/index.html for more details on end points ";
 
     }
 

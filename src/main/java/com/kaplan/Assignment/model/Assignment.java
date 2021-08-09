@@ -18,7 +18,7 @@ public class Assignment {
     public String assignmentTitle;
     public String assignmentDescription;
     public String assignmentType;
-    public String assignmentDurationNum;
+    public Integer assignmentDurationNum;
     public String assignmentDurationType;
 
     public Long getAssignmentId() {
@@ -61,11 +61,11 @@ public class Assignment {
         this.assignmentType = assignmentType;
     }
 
-    public String getAssignmentDurationNum() {
+    public Integer getAssignmentDurationNum() {
         return assignmentDurationNum;
     }
 
-    public void setAssignmentDurationNum(String assignmentDurationNum) {
+    public void setAssignmentDurationNum(Integer assignmentDurationNum) {
         this.assignmentDurationNum = assignmentDurationNum;
     }
 
