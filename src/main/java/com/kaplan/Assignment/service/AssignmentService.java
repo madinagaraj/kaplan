@@ -36,4 +36,8 @@ public class AssignmentService {
         assignmentRepo.save(assignment);
         return assignment;
     }
+
+    public List<Assignment>  getAssignmentsByTag(String tag) {
+        return assignmentRepo.retrieveByTag(tag);
+    }
 }

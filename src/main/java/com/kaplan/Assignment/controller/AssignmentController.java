@@ -36,4 +36,11 @@ public class AssignmentController {
         return assignmentResponse;
     }
 
+    @RequestMapping(value = "/searchbytag/{tag}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Assignment> getAssignmentBytag(@PathVariable String tag) {
+        return assignmentService.getAssignmentsByTag(tag);
+
+    }
+
 }

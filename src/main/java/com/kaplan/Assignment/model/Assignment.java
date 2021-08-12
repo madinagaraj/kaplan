@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Assignment")
@@ -12,7 +14,8 @@ import javax.persistence.*;
 @Component
 public class Assignment {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "assignment_no_gen")
     public Long assignmentId;
     public String assignmentName;
     public String assignmentTitle;
@@ -21,8 +24,11 @@ public class Assignment {
     public Integer assignmentDurationNum;
     public String assignmentDurationType;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "assignment_no_gen")
+    @ElementCollection(targetClass=String.class)
+    @CollectionTable(name ="tags")
+    public List<String> tags = new ArrayList<String>();
+
+
     public Long getAssignmentId() {
         return assignmentId;
     }
@@ -77,6 +83,14 @@ public class Assignment {
 
     public void setAssignmentDurationType(String assignmentDurationType) {
         this.assignmentDurationType = assignmentDurationType;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 
 
