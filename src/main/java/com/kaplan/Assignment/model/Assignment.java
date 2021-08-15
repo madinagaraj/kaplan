@@ -2,9 +2,12 @@ package com.kaplan.Assignment.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.sun.istack.NotNull;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +20,17 @@ public class Assignment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "assignment_no_gen")
     public Long assignmentId;
+    
+    @NotEmpty(message="Assignment Name not found")
     public String assignmentName;
+    @NotEmpty(message="Assignment Title not found")
     public String assignmentTitle;
     public String assignmentDescription;
+    @NotEmpty(message="Assignment Type not found")
     public String assignmentType;
+    @Min(1)
     public Integer assignmentDurationNum;
+    @NotEmpty(message="Assignment Duration Type not found")
     public String assignmentDurationType;
 
     @ElementCollection(targetClass=String.class)

@@ -3,7 +3,6 @@ package com.kaplan.Assignment.service;
 import com.kaplan.Assignment.model.Assignment;
 import com.kaplan.Assignment.repository.AssignmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,10 +24,8 @@ public class AssignmentService {
     }
 
     @Transactional(readOnly = true)
-    public Assignment getAssignmentByID(Long id ) {
-        Optional<Assignment> assignmentResponse =  assignmentRepo.findById(id);
-        Assignment assignment = assignmentResponse.get();
-        return assignment;
+    public Optional<Assignment> getAssignmentByID(Long id ) {
+        return assignmentRepo.findById(id);
     }
 
 
