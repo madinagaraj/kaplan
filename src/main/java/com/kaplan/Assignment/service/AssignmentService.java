@@ -30,8 +30,8 @@ public class AssignmentService {
 
 
     public Assignment save(Assignment assignment) {
-        assignmentRepo.save(assignment);
-        return assignment;
+        Assignment newAssignment= assignmentRepo.save(assignment);
+        return newAssignment;
     }
 
     public List<Assignment>  getAssignmentsByTag(String tag) {
