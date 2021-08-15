@@ -54,7 +54,7 @@ public class AssignmentController {
     public ResponseEntity<Assignment> getAssignmentById(@PathVariable Long id) {
         Optional<Assignment> assignmentByID = assignmentService.getAssignmentByID(id);
         if (ObjectUtils.isEmpty(assignmentByID)){
-            throw new AssignmentNotFoundException("Not found Tutorial with id = " + id);
+            throw new AssignmentNotFoundException("Not found Assignment with id = " + id);
         } else
         return new ResponseEntity<>(assignmentByID.get(), HttpStatus.OK);
     }
@@ -64,7 +64,7 @@ public class AssignmentController {
     public ResponseEntity<List<Assignment>> getAssignmentBytag(@PathVariable String tag) {
         List<Assignment> assignmentsTagList = assignmentService.getAssignmentsByTag(tag);
         if (ObjectUtils.isEmpty(assignmentsTagList)){
-            throw new NoAssignmentWithTagFoundException("Not found Tutorial with Tag = " + tag);
+            throw new NoAssignmentWithTagFoundException("Not found Assignment with Tag = " + tag);
         } else
             return new ResponseEntity<>(assignmentsTagList, HttpStatus.OK);
 
